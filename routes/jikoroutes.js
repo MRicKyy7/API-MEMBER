@@ -1,16 +1,12 @@
 import { Router } from "express";
-import {
-    addNewJiko,
-    deleteJiko,
-    editJiko,
-    getAllJiko,
-} from "../controllers/jikocontroller.js";
+import { addNewJiko, deleteJiko, editJiko, getAllJiko, getAllJikobyid } from "../controllers/jikocontroller.js";
 
 const jikoRouter = Router();
 
 jikoRouter.get("/", getAllJiko);
+jikoRouter.get("/:jikoId", getAllJikobyid);
 jikoRouter.post("/", addNewJiko);
 jikoRouter.put("/", editJiko);
-jikoRouter.delete("/", deleteJiko);
+jikoRouter.delete("/:jikoId", deleteJiko);
 
 export default jikoRouter;
